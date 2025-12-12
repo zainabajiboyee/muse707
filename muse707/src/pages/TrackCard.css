@@ -1,0 +1,115 @@
+.track-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.track-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.track-card-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #c74949 0%, #5c0c01 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.track-card-content {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-card-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.track-card-artist {
+  margin: 0 0 0.75rem 0;
+  color: #666;
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.track-card-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.track-card-tag {
+  background: #f0f0f0;
+  color: #555;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.track-card-tag-playlist {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.track-card-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.track-card-btn {
+  flex: 1;
+  padding: 0.625rem;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.track-card-btn-edit {
+  background: #667eea;
+}
+
+.track-card-btn-edit:hover {
+  background: #5568d3;
+}
+
+.track-card-btn-listen {
+  background: #10b981;
+}
+
+.track-card-btn-listen:hover {
+  background: #059669;
+}

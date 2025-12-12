@@ -1,0 +1,227 @@
+.edit-track-page {
+  padding: 3rem 4rem;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-track-page-title {
+  font-size: 2.5rem;
+  margin: 0 0 2rem 0;
+  color: #ff1744;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.edit-track-form {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 2.5rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(255, 23, 68, 0.2), 0 0 0 2px #ff1744;
+  border: 2px solid #ff1744;
+  position: relative;
+}
+
+.edit-track-form::before {
+  position: absolute;
+  top: -15px;
+  right: 30px;
+  font-size: 2rem;
+  color: #ff1744;
+  background: #1a1a1a;
+  padding: 0 10px;
+}
+
+.edit-track-form label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+}
+
+.edit-track-form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #656565;
+  border: 2px solid #4a4a4a;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.edit-track-form input:focus {
+  outline: none;
+  border-color: #ff1744;
+  box-shadow: 0 0 10px rgba(255, 23, 68, 0.3);
+  background: #1a1a1a;
+}
+
+.edit-track-form input::placeholder {
+  color: #888;
+}
+
+.image-preview {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.image-preview img {
+  border: 3px solid #ff1744;
+  box-shadow: 0 4px 16px rgba(255, 23, 68, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.image-preview img:hover {
+  transform: scale(1.05);
+}
+
+.file-input {
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+  border: 2px dashed #ff1744 !important;
+  padding: 1rem !important;
+  cursor: pointer;
+}
+
+.file-input::-webkit-file-upload-button {
+  background: #ff1744;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.file-input-hint {
+  color: #aaa;
+  font-style: italic;
+}
+
+.edit-track-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.edit-track-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.edit-track-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.edit-track-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.edit-track-btn-submit {
+  background: linear-gradient(135deg, #ff1744 0%, #c2185b 100%);
+  color: white;
+  flex: 1;
+  box-shadow: 0 4px 15px rgba(255, 23, 68, 0.4);
+}
+
+.edit-track-btn-submit:hover {
+  background: linear-gradient(135deg, #ff4569 0%, #d81b60 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 23, 68, 0.6);
+}
+
+.edit-track-btn-submit:disabled {
+  background: #4a4a4a;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.edit-track-btn-delete {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #ff1744;
+  border: 2px solid #ff1744;
+  box-shadow: 0 4px 15px rgba(255, 23, 68, 0.2);
+}
+
+.edit-track-btn-delete:hover {
+  background: #ff1744;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 23, 68, 0.4);
+}
+
+.edit-track-btn-back {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  color: white;
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  border: 2px solid #4a4a4a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.edit-track-btn-back:hover {
+  background: linear-gradient(135deg, #3d3d3d 0%, #2d2d2d 100%);
+  border-color: #ff1744;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 23, 68, 0.3);
+}
+
+.edit-track-error {
+  color: #ff1744;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 23, 68, 0.1);
+  border: 2px solid #ff1744;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+
+.edit-track-form::after {
+  position: absolute;
+  bottom: -15px;
+  left: 30px;
+  font-size: 1.5rem;
+  background: #1a1a1a;
+  padding: 0 10px;
+}
