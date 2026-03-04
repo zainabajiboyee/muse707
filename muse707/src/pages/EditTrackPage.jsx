@@ -1,13 +1,20 @@
+//“This page handles creating and editing tracks, uploads images, 
+// manages form state, and communicates with the backend using axios.”
+
+
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./EditTrackPage.css";
+
 
 const EditTrackPage = ({ mode }) => {
   const isEdit = mode === "edit";
   const { id } = useParams();
   const navigate = useNavigate();
 
+
+  
   const [formData, setFormData] = useState({
     title: "",
     artist: "",
@@ -17,13 +24,14 @@ const EditTrackPage = ({ mode }) => {
     playlistName: "",
   });
 
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
-  const [uploading, setUploading] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null); 
+  const [imagePreview, setImagePreview] = useState(null); 
+  const [uploading, setUploading] = useState(false); 
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(null); 
 
  
+  
   useEffect(() => {
     if (isEdit && id) {
       const fetchTrack = async () => {
@@ -40,7 +48,6 @@ const EditTrackPage = ({ mode }) => {
     }
   }, [isEdit, id]);
 
- 
   const handleFileSelect = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -106,23 +113,25 @@ const EditTrackPage = ({ mode }) => {
 
     try {
       
+     
       let imageUrl = formData.imageUrl;
       if (selectedFile) {
         imageUrl = await uploadImage();
       }
 
+      
       const trackData = {
         ...formData,
         imageUrl,
       };
 
-      if (isEdit) {
+      if (isEdit) { 
         await axios.put(`http://localhost:4000/api/tracks/${id}`, trackData);
       } else {
         await axios.post("http://localhost:4000/api/tracks", trackData);
       }
       
-      navigate("/tracks");
+      navigate("/tracks"); 
     } catch (err) {
       console.error("Error saving track:", err);
       setError(err.message || "Failed to save track");
@@ -130,6 +139,7 @@ const EditTrackPage = ({ mode }) => {
     }
   };
 
+  
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this track?")) {
       return;

@@ -1,15 +1,17 @@
+//This page loads the music, lets you search it, add new tracks, and displays everything! 
+
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom"; //tool to move between pages
+import axios from "axios"; //axios talks to the backend, fetches data
 import TrackList from "./TrackList.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import "./TracksPage.css";
 import M707logo from "../assets/M707logo.png"; 
 
 const TracksPage = () => {
-  const [tracks, setTracks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [tracks, setTracks] = useState([]); // Stores all your music tracks (empty list at start)
+  const [loading, setLoading] = useState(true); //Remembers if data is still loading (true/false)
+  const [error, setError] = useState(null); //rching] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
   const navigate = useNavigate();
@@ -18,8 +20,10 @@ const TracksPage = () => {
     setLoading(true);
     setError(null);
     try {
+      //fetches tracks from backend  
+      //saves them as tracks 
       const response = await axios.get('http://localhost:4000/api/tracks');
-      setTracks(response.data);
+      setTracks(response.data);//Saves them in tracks
       setIsSearching(false);
     } catch (err) {
       console.error('Error fetching tracks:', err);
@@ -33,6 +37,7 @@ const TracksPage = () => {
     setLoading(true);
     setError(null);
     try {
+   
       const response = await axios.get(`http://localhost:4000/api/tracks/search?q=${encodeURIComponent(query)}`);
       setTracks(response.data);
       setIsSearching(true);
@@ -48,6 +53,7 @@ const TracksPage = () => {
     fetchAllTracks();
   };
 
+ 
   useEffect(() => {
     fetchAllTracks();
   }, []);
@@ -56,7 +62,10 @@ const TracksPage = () => {
     navigate("/tracks/new");
   };
 
+
+
   if (loading) return <div className="tracks-page-loading">Loading...</div>;
+
   if (error) return <div className="tracks-page-error">{error}</div>;
 
   return (
@@ -70,7 +79,7 @@ const TracksPage = () => {
       <button onClick={handleAddClick} className="tracks-page-add-btn">
         + Add New Track
       </button>
-
+      {/*Search box to find tracks*/}
       <SearchBar onSearch={handleSearch} onClear={handleClearSearch} />
 
       {isSearching && (
@@ -89,6 +98,7 @@ const TracksPage = () => {
           {isSearching ? "No tracks found matching your search." : "No tracks yet. Add your first track!"}
         </p>
       ) : (
+        /*Shows all your music cards*/
         <TrackList tracks={tracks} />
       )}
     </div>

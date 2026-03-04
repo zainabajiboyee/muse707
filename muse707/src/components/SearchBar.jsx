@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./SearchBar.css";
 
+
 const SearchBar = ({ onSearch, onClear }) => {
   const [query, setQuery] = useState("");
 

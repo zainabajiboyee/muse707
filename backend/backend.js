@@ -1,3 +1,8 @@
+//This is my Express server that runs on port 4000,
+// connects to MongoDB Atlas, and provides 7 API endpoints for managing music tracks
+// with full CRUD operations plus search functionality.
+
+
 import express from "express";     
 import mongoose from "mongoose";    
 import cors from "cors";            
@@ -32,14 +37,14 @@ app.get("/api/tracks/search", async (req, res) => {
     }
 
     
-    const tracks = await Track.find({
+    const tracks = await Track.find({ 
       $or: [
         { title: { $regex: q, $options: "i" } },
         { artist: { $regex: q, $options: "i" } },
         { mood: { $regex: q, $options: "i" } },
         { playlistName: { $regex: q, $options: "i" } },
       ],
-    }).sort({ createdAt: -1 });
+    }).sort({ createdAt: -1 }); 
 
     res.json(tracks);
   } catch (error) {
@@ -47,6 +52,7 @@ app.get("/api/tracks/search", async (req, res) => {
     res.status(500).json({ message: "Error searching tracks" });
   }
 });
+
 
 
 app.get("/api/tracks", async (req, res) => {
@@ -96,6 +102,7 @@ app.get("/api/tracks/:id", async (req, res) => {
 });
 
 
+
 app.put("/api/tracks/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -137,6 +144,7 @@ app.delete("/api/tracks/:id", async (req, res) => {
 });
 
 
+
 app.post("/api/upload", upload.single('image'), async (req, res) => {
   try {
     if (!req.file) {
@@ -154,6 +162,7 @@ app.post("/api/upload", upload.single('image'), async (req, res) => {
   }
 });
 
-app.listen(4000, () => {
-  console.log("Server is running on port 4000");
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
