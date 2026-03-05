@@ -36,7 +36,7 @@ const EditTrackPage = ({ mode }) => {
     if (isEdit && id) {
       const fetchTrack = async () => {
         try {
-          const response = await axios.get(`http://localhost:4000/api/tracks/${id}`);
+          const response = await axios.get(`https://muse707.onrender.com/api/tracks/${id}`);
           setFormData(response.data);
           setImagePreview(response.data.imageUrl);
         } catch (err) {
@@ -84,7 +84,7 @@ const EditTrackPage = ({ mode }) => {
       const formDataUpload = new FormData();
       formDataUpload.append('image', selectedFile);
 
-      const response = await axios.post('http://localhost:4000/api/upload', formDataUpload, {
+      const response = await axios.post('https://muse707.onrender.com/api/upload', formDataUpload, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -126,9 +126,9 @@ const EditTrackPage = ({ mode }) => {
       };
 
       if (isEdit) { 
-        await axios.put(`http://localhost:4000/api/tracks/${id}`, trackData);
+        await axios.put(`https://muse707.onrender.com/api/tracks/${id}`, trackData);
       } else {
-        await axios.post("http://localhost:4000/api/tracks", trackData);
+        await axios.post("https://muse707.onrender.com/api/tracks", trackData);
       }
       
       navigate("/tracks"); 
@@ -146,7 +146,7 @@ const EditTrackPage = ({ mode }) => {
     }
 
     try {
-      await axios.delete(`http://localhost:4000/api/tracks/${id}`);
+      await axios.delete(`https://muse707.onrender.com/api/tracks/${id}`);
       navigate("/tracks");
     } catch (err) {
       console.error("Error deleting track:", err);

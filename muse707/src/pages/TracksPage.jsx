@@ -22,7 +22,7 @@ const TracksPage = () => {
     try {
       //fetches tracks from backend  
       //saves them as tracks 
-      const response = await axios.get('http://localhost:4000/api/tracks');
+      const response = await axios.get('https://muse707.onrender.com/api/tracks');
       setTracks(response.data);//Saves them in tracks
       setIsSearching(false);
     } catch (err) {
@@ -38,7 +38,7 @@ const TracksPage = () => {
     setError(null);
     try {
    
-      const response = await axios.get(`http://localhost:4000/api/tracks/search?q=${encodeURIComponent(query)}`);
+      const response = await axios.get(`https://muse707.onrender.com/api/tracks/search?q=${encodeURIComponent(query)}`);
       setTracks(response.data);
       setIsSearching(true);
     } catch (err) {
