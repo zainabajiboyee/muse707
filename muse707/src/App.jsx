@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import TracksPage from "./pages/TracksPage.jsx";
 import EditTrackPage from "./pages/EditTrackPage.jsx";
-import Footer from "./components/footer.jsx";
+import Footer from "./components/Footer.jsx";
 import "./App.css";
 
 function App() {
